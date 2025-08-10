@@ -14,11 +14,18 @@ public class EnemyConfigRepository : ScriptableObject
         return m_Enemies[Random.Range(0, m_Enemies.Count)];
     }*/
     
-    public CharacterConfig GetRandom()
+    public CharacterModel GetRandom()
     {
-        Enemies = new Queue<CharacterConfig>(m_Enemies);
-        var getNext = Enemies.Dequeue();
-        Enemies.Enqueue(getNext);
-        return getNext;
+        var hp = Random.Range(20, 60);
+        var characterStats = new CharacterStats()
+        {
+            AttackSpeed = Random.Range(1, 3),
+            MaxHealth = hp,
+            Health = hp,
+            Damage = Random.Range(2, 8),
+        };
+        
+        var characterModel = new CharacterModel(characterStats);
+        return characterModel;
     }
 }

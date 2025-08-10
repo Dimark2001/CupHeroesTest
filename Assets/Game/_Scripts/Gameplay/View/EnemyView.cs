@@ -9,7 +9,7 @@ public class EnemyView : BaseCharacterView
         {
             if (_model == null)
             {
-                CharacterModel = GameResources.EnemyConfigRepository.GetRandom().GetModel();
+                CharacterModel = GameResources.EnemyConfigRepository.GetRandom();
             }
             return _model; 
         }
@@ -21,8 +21,7 @@ public class EnemyView : BaseCharacterView
     private void OnEnable()
     {
         ResetState();
-        HpBar.SetValue(CharacterModel.Stats.Value.Health);
-        HpBar.SetMaxValue(CharacterModel.Stats.Value.MaxHealth);
+        StatBar.UpdateStats(CharacterModel.Stats.Value);
     }
 
     public override async UniTask PlayDeathAnimation()

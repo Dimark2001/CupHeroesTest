@@ -20,10 +20,11 @@ public class GameInstaller : LifetimeScope
         
         builder.RegisterComponentInHierarchy<GameStateMachine>();
         builder.RegisterComponentInHierarchy<EnemyFactory>().AsSelf();
+        builder.RegisterComponentInHierarchy<CoinLabelView>();
      
         builder.Register<EnemyPresenter>(Lifetime.Transient).As<ICharacterPresenter>().AsSelf();
         builder.Register<GamePresenter>(Lifetime.Singleton);
-        builder.Register<CoinStorage>(Lifetime.Singleton);
+        builder.Register<CoinStorage>(Lifetime.Singleton).AsSelf();
         builder.Register<HeroUpgradeService>(Lifetime.Singleton);
 
         RegisterHero();

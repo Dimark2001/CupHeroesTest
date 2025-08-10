@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HpBarView : MonoBehaviour, IHpBar
+public class StatsBarView : MonoBehaviour, IStatBar
 {
     [SerializeField]
     private Slider _hpBar;
@@ -11,21 +11,36 @@ public class HpBarView : MonoBehaviour, IHpBar
     [SerializeField]
     private TextMeshProUGUI _hpText;
 
-    public void SetValue(float value)
+    [SerializeField]
+    private TextMeshProUGUI _attackText;
+
+    [SerializeField]
+    private TextMeshProUGUI _speedText;
+
+    public void UpdateStats(CharacterStats stats)
+    {
+        SetMaxHealthValue(stats.MaxHealth);
+        SetHealthValue(stats.Health);
+
+        _attackText.text = $"{stats.Damage}";
+        _speedText.text = $"{stats.AttackSpeed}";
+    }
+
+    public void SetHealthValue(float value)
     {
         var diff = value - _hpBar.value;
         _hpBar.value = value;
-        
+
         if (diff != 0 && !Mathf.Approximately(_hpBar.value, _hpBar.maxValue))
         {
             ShowPopup(diff);
         }
     }
-
-    public void SetMaxValue(float value)
+    
+    public void SetMaxHealthValue(float value)
     {
         if (_hpBar.value > value) return; // TODO: fix()
-        
+
         _hpBar.maxValue = value;
     }
 

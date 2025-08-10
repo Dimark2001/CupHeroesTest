@@ -13,7 +13,9 @@ public class CoinLabelView : MonoBehaviour
     [Inject]
     public void Construct(CoinStorage coinStorage)
     {
-        coinStorage.CurrentCoins.Subscribe(SetValue).AddTo(_disposables);
+        coinStorage.CurrentCoins
+            .Subscribe(SetValue)
+            .AddTo(_disposables);
     }
 
     private void SetValue(int value) => _text.text = value.ToString();

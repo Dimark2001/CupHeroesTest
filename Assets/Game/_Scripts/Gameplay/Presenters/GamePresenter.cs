@@ -20,6 +20,7 @@ public class GamePresenter : IDisposable
     {
         _factory = factory;
         _hero = hero;
+        _coinStorage = coinStorage;
     }
 
     public async UniTask SetupBattleSystem()

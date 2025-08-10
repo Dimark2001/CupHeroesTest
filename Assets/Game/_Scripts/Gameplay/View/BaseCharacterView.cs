@@ -5,21 +5,19 @@ public abstract class BaseCharacterView : MonoBehaviour, ICharacterView
 {
     public abstract CharacterModel CharacterModel { get; protected set; }
     protected ICharacterAnimation Animation;
-    protected IHpBar HpBar;
+    protected IStatBar StatBar;
 
     protected virtual void Awake()
     {
         Animation = GetComponentInChildren<ICharacterAnimation>();
-        HpBar = GetComponentInChildren<IHpBar>();
+        StatBar = GetComponentInChildren<IStatBar>();
 
-        HpBar.SetMaxValue(CharacterModel.Stats.Value.MaxHealth);
-        HpBar.SetValue(CharacterModel.Stats.Value.Health);
+        StatBar.UpdateStats(CharacterModel.Stats.Value);
     }
 
     public virtual void UpdateStats(CharacterStats stats)
     {
-        HpBar.SetMaxValue(stats.MaxHealth);
-        HpBar.SetValue(stats.Health);
+        StatBar.UpdateStats(stats);
     }
 
     public virtual UniTask PlayAttackAnimation(ICharacterPresenter target) => Animation.AttackAnimation(target);
