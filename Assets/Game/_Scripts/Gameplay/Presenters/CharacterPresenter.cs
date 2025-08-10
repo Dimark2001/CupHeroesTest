@@ -35,7 +35,8 @@ public class CharacterPresenter : ICharacterPresenter
         {
             Health = Mathf.Max(0, currentStats.Health - damage),
             Damage = currentStats.Damage,
-            AttackSpeed = currentStats.AttackSpeed
+            AttackSpeed = currentStats.AttackSpeed,
+            MaxHealth = currentStats.MaxHealth,
         };
         Model.Stats.Value = newStats;
         if (newStats.Health <= 0)

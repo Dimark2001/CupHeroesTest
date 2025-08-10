@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyConfig 1
   m_EditorClassIdentifier: 
   m_CharacterModel:
-    Health: 80
-    MaxHealth: 80
+    Health: 50
+    MaxHealth: 50
     Damage: 6
     AttackSpeed: 1
