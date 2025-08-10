@@ -8,7 +8,7 @@ public class EnemyFactory : MonoBehaviour
     private EnemyView _enemyPrefab;
 
     private readonly bool _useObjectPooling = true;
-    private readonly int _initialPoolSize = 10;
+    private readonly int _initialPoolSize = 20;
     private readonly Queue<(EnemyView, EnemyPresenter)> _enemyPool = new();
     private Transform _enemyContainer;
 
@@ -85,6 +85,6 @@ public class EnemyFactory : MonoBehaviour
     [System.Serializable]
     public struct EnemySpawnParams
     {
-        public Vector3 SpawnPosition => new(3.5f, -7f, 0f);
+        public Vector3 SpawnPosition => new(3.5f, 3.8f, 0f);
     }
 }

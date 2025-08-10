@@ -14,6 +14,8 @@ public class HeroUpgradeService
 
     public void TryUpgradeHealth()
     {
+        if (!_coinStorage.TrySpendCoins(5))
+            return;
         var stats = new CharacterStats()
         {
             MaxHealth = 10,
@@ -24,6 +26,8 @@ public class HeroUpgradeService
 
     public void TryUpgradeDamage()
     {
+        if (!_coinStorage.TrySpendCoins(5))
+            return;
         var stats = new CharacterStats()
         {
             Damage = 5
@@ -33,6 +37,8 @@ public class HeroUpgradeService
 
     public void TryUpgradeAttackSpeed()
     {
+        if (!_coinStorage.TrySpendCoins(5))
+            return;
         var stats = new CharacterStats()
         {
             AttackSpeed = 1f
