@@ -8,6 +8,7 @@ public class GamePresenter : IDisposable
 {
     private readonly EnemyFactory _factory;
     private readonly HeroPresenter _hero;
+    private readonly CoinStorage _coinStorage;
     private InitiativeService _initiativeService;
 
     private List<EnemyPresenter> _enemies;
@@ -15,7 +16,7 @@ public class GamePresenter : IDisposable
     private bool _isHeroDead;
 
     [Inject]
-    public GamePresenter(HeroPresenter hero, EnemyFactory factory)
+    public GamePresenter(HeroPresenter hero, EnemyFactory factory, CoinStorage coinStorage)
     {
         _factory = factory;
         _hero = hero;
@@ -35,6 +36,7 @@ public class GamePresenter : IDisposable
         {
             _enemies.Remove(enemy);
             _initiativeService.UnregisterParticipant(enemy);
+            _coinStorage.AddCoins(10);  
         };
         _enemies = new List<EnemyPresenter> { enemy, };
         _initiativeService.RegisterParticipant(enemy);
