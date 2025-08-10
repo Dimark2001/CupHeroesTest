@@ -15,8 +15,6 @@ public class HpBarView : MonoBehaviour, IHpBar
     {
         var diff = value - _hpBar.value;
         _hpBar.value = value;
-
-        
         
         if (diff != 0 && !Mathf.Approximately(_hpBar.value, _hpBar.maxValue))
         {
@@ -29,7 +27,6 @@ public class HpBarView : MonoBehaviour, IHpBar
         if (_hpBar.value > value) return; // TODO: fix()
         
         _hpBar.maxValue = value;
-        _hpBar.value = value;
     }
 
     private void Awake() => _hpBar.onValueChanged.AddListener(ChangeHpText);
@@ -45,7 +42,7 @@ public class HpBarView : MonoBehaviour, IHpBar
 
         var text = popup.GetComponent<TextMeshProUGUI>();
         text.text = $"{diff:F0}";
-        text.color = Color.red;
+        text.color = diff > 0 ? Color.green : Color.red;
         text.alignment = TextAlignmentOptions.Center;
         text.fontSize = 6;
 

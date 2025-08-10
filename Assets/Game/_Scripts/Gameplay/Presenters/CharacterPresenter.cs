@@ -23,23 +23,19 @@ public class CharacterPresenter : ICharacterPresenter
 
     public async UniTask Attack(ICharacterPresenter target)
     {
-        Debug.Log($"{View} Attack {target}"); 
         await View.PlayAttackAnimation(target);
         await target.TakeDamage(Model.Stats.Value.Damage);
     }
 
     public async UniTask TakeDamage(float damage)
     {
-        var currentStats = Model.Stats.Value;
         var newStats = new CharacterStats
         {
-            Health = Mathf.Max(0, currentStats.Health - damage),
-            Damage = currentStats.Damage,
-            AttackSpeed = currentStats.AttackSpeed,
-            MaxHealth = currentStats.MaxHealth,
+            Health = -damage,
         };
-        Model.Stats.Value = newStats;
-        if (newStats.Health <= 0)
+        Model.Stats.Value += newStats;
+        
+        if (Model.Stats.Value.Health <= 0)
         {
             await View.PlayDeathAnimation();
             OnDeath?.Invoke();

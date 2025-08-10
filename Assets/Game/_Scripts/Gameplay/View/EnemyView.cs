@@ -21,8 +21,8 @@ public class EnemyView : BaseCharacterView
     private void OnEnable()
     {
         ResetState();
-        HpBar.SetMaxValue(CharacterModel.Stats.Value.MaxHealth);
         HpBar.SetValue(CharacterModel.Stats.Value.Health);
+        HpBar.SetMaxValue(CharacterModel.Stats.Value.MaxHealth);
     }
 
     public override async UniTask PlayDeathAnimation()

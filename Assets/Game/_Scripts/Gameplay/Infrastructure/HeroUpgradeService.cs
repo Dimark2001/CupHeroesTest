@@ -17,6 +17,7 @@ public class HeroUpgradeService
         var stats = new CharacterStats()
         {
             MaxHealth = 10,
+            Health = 10,
         };
         _heroModel.Stats.Value += stats;
     }
@@ -34,7 +35,7 @@ public class HeroUpgradeService
     {
         var stats = new CharacterStats()
         {
-            AttackSpeed = 0.2f
+            AttackSpeed = 1f
         };
         _heroModel.Stats.Value += stats;
     }

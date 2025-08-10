@@ -18,8 +18,8 @@ public abstract class BaseCharacterView : MonoBehaviour, ICharacterView
 
     public virtual void UpdateStats(CharacterStats stats)
     {
-        HpBar.SetMaxValue(stats.MaxHealth);
         HpBar.SetValue(stats.Health);
+        HpBar.SetMaxValue(stats.MaxHealth);
     }
 
     public virtual UniTask PlayAttackAnimation(ICharacterPresenter target) => Animation.AttackAnimation(target);
