@@ -7,6 +7,9 @@ public class EnemyFactory : MonoBehaviour
     [SerializeField]
     private EnemyView _enemyPrefab;
 
+    [SerializeField]
+    private Transform _spawnPoint;
+
     private readonly bool _useObjectPooling = true;
     private readonly int _initialPoolSize = 20;
     private readonly Queue<(EnemyView, EnemyPresenter)> _enemyPool = new();
@@ -17,8 +20,7 @@ public class EnemyFactory : MonoBehaviour
 
     public EnemyPresenter SpawnEnemy()
     {
-        var spawnParams = new EnemySpawnParams();
-        var presenter = GetOrCreateEnemyView(spawnParams.SpawnPosition);
+        var presenter = GetOrCreateEnemyView(Vector3.zero);
         return presenter;
     }
 
@@ -80,11 +82,5 @@ public class EnemyFactory : MonoBehaviour
         }
 
         return tuple.Item2;
-    }
-
-    [System.Serializable]
-    public struct EnemySpawnParams
-    {
-        public Vector3 SpawnPosition => new(3.5f, 3.8f, 0f);
     }
 }

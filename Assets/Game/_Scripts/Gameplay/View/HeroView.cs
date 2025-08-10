@@ -1,4 +1,6 @@
-﻿public class HeroView : BaseCharacterView
+﻿using UnityEngine;
+
+public class HeroView : BaseCharacterView
 {
     public override CharacterModel CharacterModel
     {
@@ -15,4 +17,10 @@
     }
 
     private CharacterModel _model;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        transform.MoveToScreenPercent(new Vector2(17.5f, 70.3f));
+    }
 }

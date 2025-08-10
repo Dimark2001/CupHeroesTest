@@ -1,5 +1,5 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 public class EnemyView : BaseCharacterView
 {
@@ -11,7 +11,8 @@ public class EnemyView : BaseCharacterView
             {
                 CharacterModel = GameResources.EnemyConfigRepository.GetRandom();
             }
-            return _model; 
+
+            return _model;
         }
         protected set => _model = value;
     }
@@ -22,6 +23,7 @@ public class EnemyView : BaseCharacterView
     {
         ResetState();
         StatBar.UpdateStats(CharacterModel.Stats.Value);
+        transform.MoveToScreenPercent(new Vector2(83.45f,70.3f));
     }
 
     public override async UniTask PlayDeathAnimation()

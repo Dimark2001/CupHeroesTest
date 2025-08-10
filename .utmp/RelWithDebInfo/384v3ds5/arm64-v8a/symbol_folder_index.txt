@@ -1,0 +1,1 @@
+C:\Users\Genius_1\Unity\CupHeroeTest\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\384v3ds5\obj\arm64-v8a

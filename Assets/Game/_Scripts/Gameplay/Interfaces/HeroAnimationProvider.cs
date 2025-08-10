@@ -11,6 +11,7 @@ public class HeroAnimationProvider : MonoBehaviour, ICharacterAnimation
     private void Awake()
     {
         _playerObj = GetComponentInChildren<PlayerObj>();
+        _ = MoveAnimation();
     }
 
     public async UniTask AttackAnimation(ICharacterPresenter target)

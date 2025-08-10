@@ -1,0 +1,5 @@
+C:/Users/Genius_1/Unity/CupHeroeTest/.utmp/RelWithDebInfo/384v3ds5/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Genius_1/Unity/CupHeroeTest/.utmp/RelWithDebInfo/384v3ds5/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/Genius_1/Unity/CupHeroeTest/.utmp/RelWithDebInfo/384v3ds5/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/Genius_1/Unity/CupHeroeTest/.utmp/RelWithDebInfo/384v3ds5/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/Genius_1/Unity/CupHeroeTest/.utmp/RelWithDebInfo/384v3ds5/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
